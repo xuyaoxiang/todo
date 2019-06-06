@@ -113,7 +113,7 @@
                                             <div>
                                                 @foreach ($tags as $key=>$tag)
                                                     <div class="ui checkbox">
-                                                        <input {{count(old('tag'))>0&&in_array($tag->id,old('tag'))?'checked':''}} name="tag[]"
+                                                        <input {{is_array(old('tag')) && count(old('tag'))>0&&in_array($tag->id,old('tag'))?'checked':''}} name="tag[]"
                                                                value="{{$tag->id}}" type="checkbox" class="hidden">
                                                         <label>{{$tag->name}}</label>
                                                     </div>
