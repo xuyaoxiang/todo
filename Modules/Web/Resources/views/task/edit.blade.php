@@ -115,12 +115,12 @@
                                             <label>{{trans('task.table.tag')}}</label>
                                             @foreach ($tags as $key=>$tag)
                                                 <div class="ui checkbox">
-                                                    @if(count(old('tag'))>0)
+                                                    @if( is_array(old('tag')) && count(old('tag'))>0)
                                                         <input name="tag[]" value="{{$tag->id}}" type="checkbox"
                                                                class="hidden"
-                                                                {{count(old('tag'))>0&&in_array($tag->id,old('tag'))?'checked':''}}>
+                                                                {{is_array(old('tag')) && count(old('tag'))>0 && in_array($tag->id,old('tag'))?'checked':''}}>
                                                     @else
-                                                        <input {{count($data->tags)>0&&in_array($tag->id,$otags)?'checked':''}}
+                                                        <input {{is_array($data->tags) && count($data->tags)>0&&in_array($tag->id,$otags)?'checked':''}}
                                                                name="tag[]" type="checkbox" value="{{$tag->id}}">
                                                     @endif
                                                     <label>{{$tag->name}}</label>

@@ -56,7 +56,7 @@ class ProjectService
             ->where('uuid', '!=', request()->route('uuid'))
             ->get();
 
-        if (count($project) > 0) {
+        if (is_array($project) && count($project) > 0) {
             return $project;
         }
 

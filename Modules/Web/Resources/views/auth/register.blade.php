@@ -46,7 +46,7 @@
                                        placeholder="{{trans('auth.password_confirmation')}}">
                             </div>
                         </div>
-                        @if (count($errors) > 0)
+                        @if (is_array($errors) && count($errors) > 0)
                             <div class="ui mini error visible message error-message">
                                 {{ $errors->first() }}
                             </div>
