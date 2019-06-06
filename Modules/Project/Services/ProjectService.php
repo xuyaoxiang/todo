@@ -70,7 +70,7 @@ class ProjectService
     {
         $project = $this->projectRepositoryEloquent->getProjectByUuid(request()->route('uuid'));
 
-        if (count($project) > 0) {
+        if ($project) {
             return $project->tasks()->where('status', Task::OPEN)->count();
         }
 
